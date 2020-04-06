@@ -211,7 +211,7 @@ public class DialogueManager : MonoBehaviour
             textBox.text = "";
             var subSentence = sentence;
             var nextToType = "";
-            while ((nextToType = GetNextCharacterToType(sentence)) != "")
+            while ((nextToType = GetNextCharacterToType(subSentence)) != "")
             {
                 textBox.text += nextToType;
                 subSentence = subSentence.Substring(nextToType.Length);
@@ -224,7 +224,7 @@ public class DialogueManager : MonoBehaviour
             textBox.text = "";
             var subSentence = sentence;
             var nextToType = "";
-            while ((nextToType = GetNextCharacterToType(sentence)) != "")
+            while ((nextToType = GetNextCharacterToType(subSentence)) != "")
             {
                 textBox.text += nextToType;
                 subSentence = subSentence.Substring(nextToType.Length);
@@ -324,13 +324,13 @@ public class DialogueManager : MonoBehaviour
         {
             return "";
         }
-        else if (text.Substring(0) == "<" && text.Contains(">"))
+        else if (text.Substring(0,1) == "<" && text.Contains(">"))
         {
             return text.Substring(0, text.IndexOf(">"));
         }
         else //( text.Substring(0) != "<")
         {
-            return text.Substring(0);
+            return text.Substring(0,1);
         }
     }
 
