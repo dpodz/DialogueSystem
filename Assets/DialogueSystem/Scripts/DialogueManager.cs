@@ -324,13 +324,13 @@ public class DialogueManager : MonoBehaviour
         {
             return "";
         }
-        else if (text.Substring(0,1) == "<" && text.Contains(">"))
+        else if (text.Substring(0, 1) == "<" && text.Contains(">"))
         {
-            return text.Substring(0, text.IndexOf(">"));
+            return text.Substring(0, text.IndexOf(">") + 2);
         }
         else //( text.Substring(0) != "<")
         {
-            return text.Substring(0,1);
+            return text.Substring(0, 1);
         }
     }
 
